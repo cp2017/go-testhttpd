@@ -18,7 +18,7 @@ import (
   "os"
   //"fmt"
 
-  "github.com/qnib/go-testhttpd/cmd"
+  "github.com/cp2017/go-testhttpd/cmd"
   "github.com/urfave/cli"
 )
 

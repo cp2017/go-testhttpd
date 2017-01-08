@@ -19,6 +19,7 @@ import (
     "fmt"
     "net/http"
     "strings"
+    "strconv"
 
     "github.com/urfave/cli"
 )
@@ -47,9 +48,14 @@ func (hs *HTTPServer) fillStatusCodeChan() string {
 
 func (hs *HTTPServer) httpHandler(w http.ResponseWriter, r *http.Request) {
     sc := <-hs.StatusChan
-    log.Println(sc)
-    fmt.Fprintf(w, "Hi there, I love %s!", sc)
-
+    log.Println("Statuscode: ", sc)
+    ci, _ := strconv.Atoi(sc)
+    if strings.HasPrefix(sc, "2") {
+        w.WriteHeader(ci)
+    } else if strings.HasPrefix(sc, "4") || strings.HasPrefix(sc, "5") {
+        http.Error(w, http.StatusText(ci), ci)
+    }
+    fmt.Fprintf(w, fmt.Sprintf("%s, %s\n", sc, http.StatusText(ci)))
 }
 
 // Run starts the webserver

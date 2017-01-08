@@ -12,20 +12,21 @@ pipeline:
   build:
     image: qnib/alpn-go-dev:1.7
     commands:
-      - go build -o go-testhttpd_musl
-      - GOOS=darwin GOARCH=amd64 go build -o go-testhttpd_darwin
+      - mkdir -p resources/bin
+      - go build -o resources/bin/go-testhttpd_musl
+      - GOOS=darwin GOARCH=amd64 go build -o resources/bin/go-testhttpd_darwin
     environment:
      - GOPATH=/drone/
   build:
     image: qnib/golang
     commands:
-      - go build -o go-testhttpd_linux
+      - go build -o resources/bin/go-testhttpd_linux
     environment:
      - GOPATH=/drone/
   smoke-test:
     image: alpine:latest
     commands:
-      - ./go-testhttpd_musl --help
+      - ./resources/bin/go-testhttpd_musl --help
   slack:
     image: plugins/slack
     channel: drone
