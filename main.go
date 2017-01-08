@@ -32,7 +32,7 @@ func main() {
         Value: "200,201,202",
         Usage: "Sequence of HTTP status codes to return",
       },
-      cli.BoolTFlag{
+      cli.BoolFlag{
         Name: "verbose",
         Usage: "Verbose output of each request",
       },
