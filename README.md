@@ -32,6 +32,11 @@ Start the daemon...
 ```
 $ ./resources/bin/go-testhttpd_darwin --status-sequence 200,201,400,500
 ```
+OR
+
+```
+$ docker run -t -p 8080:8080 cp2017/testhttpd --status-sequence 200,201,400,500
+```
 
 Fetch the resulting header:
 
