@@ -25,7 +25,7 @@ import (
 func main() {
     app := cli.NewApp()
     app.Name = "go-testhttpd"
-    app.Version = "1.0.3"
+    app.Version = "1.1.0"
     app.Flags = []cli.Flag {
       cli.StringFlag{
         Name: "status-sequence",
