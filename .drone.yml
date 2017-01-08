@@ -9,6 +9,12 @@ pipeline:
      - ./test.sh
     environment:
      - GOPATH=/drone/
+  smoke-test:
+    image: qnib/golang
+    commands:
+     - go run main.go --help
+    environment:
+     - GOPATH=/drone/
   build:
     image: qnib/alpn-go-dev:1.7
     commands:
@@ -27,10 +33,6 @@ pipeline:
      - GOPATH=/drone/
     when:
         event: tag
-  smoke-test:
-    image: alpine:latest
-    commands:
-      - ./resources/bin/go-testhttpd_musl --help
   slack:
     image: plugins/slack
     channel: drone
