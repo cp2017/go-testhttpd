@@ -5,20 +5,20 @@
 		{
 			"checksumSHA1": "vh7m1M9+lf7HHO3DedS2ycnwLpM=",
 			"path": "github.com/cp2017/go-testhttpd/cmd",
-			"revision": "f7a47a757de2732f5f5af1608d5962b61cbeb92c",
-			"revisionTime": "2017-01-08T09:39:59Z"
+			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
+			"revisionTime": "2017-01-08T09:55:23Z"
 		},
 		{
-			"checksumSHA1": "kCA+qyWAkXOlK98Wh6ge8KYbS0E=",
+			"checksumSHA1": "tGisRtud2GSo5DygH6aLp/1aQ/k=",
 			"path": "github.com/qnib/go-testhttpd",
-			"revision": "3d3123c0acf5199f85db667408a2354e1739823f",
-			"revisionTime": "2017-01-08T09:41:46Z"
+			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
+			"revisionTime": "2017-01-08T09:55:23Z"
 		},
 		{
-			"checksumSHA1": "9oOdd8FGBdaOINYKP6YXeujtMJE=",
+			"checksumSHA1": "G0lpByyZ/P0XfmC9tyv835hRAts=",
 			"path": "github.com/qnib/go-testhttpd/cmd",
-			"revision": "3d3123c0acf5199f85db667408a2354e1739823f",
-			"revisionTime": "2017-01-08T09:41:46Z"
+			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
+			"revisionTime": "2017-01-08T09:55:23Z"
 		},
 		{
 			"checksumSHA1": "LMu1NsthSqcXfKu0m6YGPAmwBcY=",

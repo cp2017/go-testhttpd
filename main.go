@@ -32,6 +32,10 @@ func main() {
         Value: "200,201,202",
         Usage: "Sequence of HTTP status codes to return",
       },
+      cli.BoolFlag{
+        Name: "quiet",
+        Usage: "Supress printing logs",
+      },
     }
     app.Action = func(c *cli.Context) error {
       return cmd.TestServer(c)

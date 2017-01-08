@@ -28,13 +28,15 @@ import (
 type HTTPServer struct {
     StatusSequence []string
     StatusChan chan string
+    Quiet bool
 }
 
 // NewHTTPServer returns HTTPServer
-func NewHTTPServer(sc []string) HTTPServer {
+func NewHTTPServer(quiet bool, sc []string) HTTPServer {
     return HTTPServer{
         StatusSequence: sc,
         StatusChan: make(chan string),
+        Quiet: quiet,
     }
 }
 
@@ -48,7 +50,9 @@ func (hs *HTTPServer) fillStatusCodeChan() string {
 
 func (hs *HTTPServer) httpHandler(w http.ResponseWriter, r *http.Request) {
     sc := <-hs.StatusChan
-    log.Println("Statuscode: ", sc)
+    if ! hs.Quiet {
+        log.Println("Statuscode: ", sc)
+    }
     ci, _ := strconv.Atoi(sc)
     if strings.HasPrefix(sc, "2") {
         w.WriteHeader(ci)
@@ -61,6 +65,7 @@ func (hs *HTTPServer) httpHandler(w http.ResponseWriter, r *http.Request) {
 // Run starts the webserver
 func (hs *HTTPServer) Run() {
     go hs.fillStatusCodeChan()
+    log.Printf("Start Testserver. Quiet:%v, Seq:%v\n", hs.Quiet, hs.StatusSequence)
     http.HandleFunc("/", hs.httpHandler)
     http.ListenAndServe(":8080", nil)
 
@@ -69,7 +74,7 @@ func (hs *HTTPServer) Run() {
 
 // TestServer serves the status-sequence of HTTP codes
 func TestServer(c *cli.Context) error {
-    hserver := NewHTTPServer(strings.Split(c.String("status-sequence"), ","))
+    hserver := NewHTTPServer(c.Bool("quiet"), strings.Split(c.String("status-sequence"), ","))
     hserver.Run()
     return nil
 }
