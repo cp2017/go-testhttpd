@@ -1,31 +1,6 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [
-		{
-			"checksumSHA1": "vh7m1M9+lf7HHO3DedS2ycnwLpM=",
-			"path": "github.com/cp2017/go-testhttpd/cmd",
-			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
-			"revisionTime": "2017-01-08T09:55:23Z"
-		},
-		{
-			"checksumSHA1": "tGisRtud2GSo5DygH6aLp/1aQ/k=",
-			"path": "github.com/qnib/go-testhttpd",
-			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
-			"revisionTime": "2017-01-08T09:55:23Z"
-		},
-		{
-			"checksumSHA1": "G0lpByyZ/P0XfmC9tyv835hRAts=",
-			"path": "github.com/qnib/go-testhttpd/cmd",
-			"revision": "8fb5d4ae9caaef5e11a9310a855efb1b71e64d76",
-			"revisionTime": "2017-01-08T09:55:23Z"
-		},
-		{
-			"checksumSHA1": "LMu1NsthSqcXfKu0m6YGPAmwBcY=",
-			"path": "github.com/urfave/cli",
-			"revision": "0bdeddeeb0f650497d603c4ad7b20cfe685682f6",
-			"revisionTime": "2016-11-22T04:36:10Z"
-		}
-	],
-	"rootPath": "github.com/qnib/go-testhttpd"
+	"package": [],
+	"rootPath": "github.com/cp2017/go-testhttpd"
 }
