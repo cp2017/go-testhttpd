@@ -1,13 +1,15 @@
 #!/bin/bash
 set -xe
 
-govendor fetch +missing
-echo "> govendor remove +unused"
-govendor remove +unused
-echo "> govendor update +local"
-govendor update +local
-echo "> govendor sync +external"
-govendor sync +external
+#govendor fetch +missing
+#echo "> govendor remove +unused"
+#govendor remove +unused
+#echo "> govendor update +local"
+#govendor update +local
+#echo "> govendor sync +external"
+#govendor sync +external
+echo "> go get -d"
+go get -d
 if [ ! -d resources/coverity ];then
     mkdir -p resources/coverity
 fi
