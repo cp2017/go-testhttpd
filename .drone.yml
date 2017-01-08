@@ -17,12 +17,16 @@ pipeline:
       - GOOS=darwin GOARCH=amd64 go build -o resources/bin/go-testhttpd_darwin
     environment:
      - GOPATH=/drone/
+    when:
+        event: tag
   build:
     image: qnib/golang
     commands:
       - go build -o resources/bin/go-testhttpd_linux
     environment:
      - GOPATH=/drone/
+    when:
+        event: tag
   smoke-test:
     image: alpine:latest
     commands:
