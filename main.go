@@ -33,9 +33,10 @@ func main() {
 			Usage: "Sequence of HTTP status codes to return",
 		},
 		cli.IntFlag{
-			Name:  "port",
-			Value: 8080,
-			Usage: "port for the httpd server to bind to",
+			Name:   "port",
+			Value:  8080,
+			Usage:  "port for the httpd server to bind to",
+			EnvVar: "HTTP_PORT",
 		},
 		cli.BoolFlag{
 			Name:  "verbose",
