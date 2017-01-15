@@ -15,30 +15,35 @@
 package main
 
 import (
-  "os"
-  //"fmt"
+	"os"
+	//"fmt"
 
-  "github.com/cp2017/go-testhttpd/cmd"
-  "github.com/urfave/cli"
+	"github.com/cp2017/go-testhttpd/cmd"
+	"github.com/urfave/cli"
 )
 
 func main() {
-    app := cli.NewApp()
-    app.Name = "go-testhttpd"
-    app.Version = "1.1.1"
-    app.Flags = []cli.Flag {
-      cli.StringFlag{
-        Name: "status-sequence",
-        Value: "200,201,202",
-        Usage: "Sequence of HTTP status codes to return",
-      },
-      cli.BoolFlag{
-        Name: "verbose",
-        Usage: "Verbose output of each request",
-      },
-    }
-    app.Action = func(c *cli.Context) error {
-      return cmd.TestServer(c)
-    }
-    app.Run(os.Args)
+	app := cli.NewApp()
+	app.Name = "go-testhttpd"
+	app.Version = "1.1.1"
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "status-sequence",
+			Value: "200,201,202",
+			Usage: "Sequence of HTTP status codes to return",
+		},
+		cli.IntFlag{
+			Name:  "port",
+			Value: 8080,
+			Usage: "port for the httpd server to bind to",
+		},
+		cli.BoolFlag{
+			Name:  "verbose",
+			Usage: "Verbose output of each request",
+		},
+	}
+	app.Action = func(c *cli.Context) error {
+		return cmd.TestServer(c)
+	}
+	app.Run(os.Args)
 }
